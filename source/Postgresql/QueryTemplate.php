@@ -66,4 +66,12 @@ final class QueryTemplate extends DbTemplate {
         return pg_escape_identifier((string) $table);
     }
 
+    /**
+     * Escape array values
+     * @param array $array
+     * @return string
+     */
+    public function arr(array $array) {
+        return $this->str(sprintf('{"%s"}', implode('", "', $array)));
+    }
 }
